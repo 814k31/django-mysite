@@ -44,7 +44,6 @@ export const AuthProvider = ({ children, config }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
 
   async function login() {
-    console.log(user, authState)
     if (user || authState !== AuthState.Idle) {
       return;
     }
@@ -53,9 +52,7 @@ export const AuthProvider = ({ children, config }: AuthProviderProps) => {
 
     try {
       // Fetch user
-      console.log('yay');
       const loadedUser = await userManager.getUser();
-      console.log('loadedUser', loadedUser);
       if (loadedUser) {
         setUser(loadedUser);
         setAuthState(AuthState.Idle);
