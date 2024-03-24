@@ -1,0 +1,12 @@
+{
+  "authority": "https://dev-yxuqagk74bpowmp5.us.auth0.com/",
+  "client_id": "gkxcHO9gtKAALKZmXFWkNKwAsrU5QbQp",
+  "redirect_uri": "http://localhost:3000/callback",
+  "silent_redirect_uri": "http://localhost:3000/callback",
+  "end_session_endpoint": "http://localhost:3000/logout",
+  "response_type": "code",
+  "scope": "openid profile email",
+  "loadUserInfo": false,
+  "post_logout_redirect_uri": "http://localhost:3000/logout"
+}
+

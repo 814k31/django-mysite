@@ -1,0 +1,10 @@
+.loading {
+  width: fit-content;
+  height: fit-content;
+  position: fixed;
+  margin: auto;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
