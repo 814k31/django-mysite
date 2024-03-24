@@ -1,6 +1,6 @@
 {
-  "authority": "https://accounts.google.com/",
-  "client_id": "359225057863-48lo1b60nn73qgbb9k2hs63bfkbnq6hg.apps.googleusercontent.com",
+  "authority": "https://dev-yxuqagk74bpowmp5.us.auth0.com/",
+  "client_id": "gkxcHO9gtKAALKZmXFWkNKwAsrU5QbQp",
   "redirect_uri": "http://localhost:3000/callback",
   "silent_redirect_uri": "http://localhost:3000/callback",
   "end_session_endpoint": "http://localhost:3000/logout",

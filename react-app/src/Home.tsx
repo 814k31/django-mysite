@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { AuthState } from "./Auth/AuthProvider";
 import { useAuth } from "./Auth/useAuth";
-import { fetchPolls, fetchPoll } from "./PollsAsync";
-import { Person } from "./Person";
+import { fetchPolls, Poll } from "./PollsAsync";
+import { Poll as PollComponent } from "./Poll";
 import "./Home.css";
 
 export function Home() {
-  const [polls, setPolls] = useState([]);
-  const [poll, setPoll] = useState(null);
+  const [polls, setPolls] = useState<Poll[]>([]);
+  const [poll, setPoll] = useState<Poll | null>(null);
 
   const auth = useAuth();
 
@@ -23,27 +23,15 @@ export function Home() {
       <button
         onClick={async () => {
           const polls = await fetchPolls(auth.user?.id_token || null);
-          console.log('polls!!!', polls);
           setPolls(polls);
         }}
       >
         Fetch polls
       </button>
       polls:
-      {/* {polls.map((person, index) => (
-        <Person key={index} {...person} />
-      ))} */}
-      <button
-        onClick={async () => {
-          // const poll = await fetchPoll(
-          //   0,
-          //   auth.user ? auth.user.id_token : null
-          // );
-          // setPoll(poll);
-        }}
-      >
-        Fetch poll
-      </button>
+      {polls.map((poll) => (
+        <PollComponent key={poll.id} poll={poll} />
+      ))}
       Poll:
       {/* {poll && <Person {...poll} />} */}
       <button

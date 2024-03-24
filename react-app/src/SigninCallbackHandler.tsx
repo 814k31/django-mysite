@@ -1,5 +1,5 @@
 import { ReactElement, useEffect } from "react";
-import { redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useAuth } from "./Auth/useAuth";
 
 export function SigninCallbackHandler(): ReactElement {
@@ -7,14 +7,11 @@ export function SigninCallbackHandler(): ReactElement {
 
   useEffect(() => {
     if (auth.user) {
-      redirect("/");
       return;
     }
 
     auth.signinRedirectCallback();
-  }, [auth.user]);
+  }, []);
 
-  
-
-  return <>Loading</>;
+  return auth.user ? <Navigate to="/" replace /> : <>Loading</>;
 }

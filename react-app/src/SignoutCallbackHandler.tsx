@@ -1,5 +1,5 @@
 import { ReactElement, useEffect } from "react";
-import { redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useAuth } from "./Auth/useAuth";
 
 export function SignoutCallbackHandler(): ReactElement {
@@ -7,12 +7,11 @@ export function SignoutCallbackHandler(): ReactElement {
 
   useEffect(() => {
     if (!auth.user) {
-      redirect("/");
       return;
     }
 
     auth.signoutRedirectCallback();
-  }, [auth.user]);
+  }, []);
 
-  return <>Loading</>;
+  return !auth.user ? <Navigate to="/" replace /> : <>Loading</>;
 }

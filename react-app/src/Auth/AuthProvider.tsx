@@ -79,18 +79,17 @@ export const AuthProvider = ({ children, config }: AuthProviderProps) => {
 
   async function signinRedirectCallback() {
     try {
-      const newUser = await userManager.signinRedirectCallback();
-      setUser(newUser);
-      setAuthState(AuthState.Idle);
+      const newUser = await userManager.signinCallback();
+      setUser(newUser || null);
     } catch (error) {
-      console.error("signinRedirectCallback", error);
+      console.error("Error signing in", error);
     }
 
     setAuthState(AuthState.Idle);
   }
 
   function logout() {
-    setAuthState(AuthState.Signingin);
+    setAuthState(AuthState.Signingout);
     userManager.signoutRedirect();
     setUser(null);
   }
