@@ -1,0 +1,12 @@
+{
+  "authority": "https://accounts.google.com/",
+  "client_id": "359225057863-48lo1b60nn73qgbb9k2hs63bfkbnq6hg.apps.googleusercontent.com",
+  "redirect_uri": "http://localhost:3000/callback",
+  "silent_redirect_uri": "http://localhost:3000/callback",
+  "end_session_endpoint": "http://localhost:3000/logout",
+  "response_type": "code",
+  "scope": "openid profile email",
+  "loadUserInfo": false,
+  "post_logout_redirect_uri": "http://localhost:3000/logout"
+}
+
